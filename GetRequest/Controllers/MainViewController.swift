@@ -17,6 +17,10 @@ enum Actions: String, CaseIterable {
     case ourCourses = "Our Courses"
     case uploadImage = "Upload Image"
     case downloadFile = "Download File"
+    case ourCoursesAlomofire = "Our Courses (Alomofire)"
+    case responseData = "Response Data"
+    case resposeString = "responseString"
+    case response = "response"
 }
 
 // MARK: - Global Properties
@@ -24,6 +28,7 @@ enum Actions: String, CaseIterable {
 private let reuseIdentifier = "Cell"
 private let url = "http://jsonplaceholder.typicode.com/posts"
 private let uploadImage = "https://api.imgur.com/3/image"
+private let swiftbookApi = "http://swiftbook.ru//wp-content/uploads/api/api_courses"
 
 
 class MainViewController: UICollectionViewController {
@@ -151,6 +156,36 @@ class MainViewController: UICollectionViewController {
         case .downloadFile:
             showAlert()
             dataProvider.startDownload()
+        case .ourCoursesAlomofire:
+            performSegue(withIdentifier: "OurCoursesAlomofire", sender: self)
+        case .responseData:
+            performSegue(withIdentifier: "ResponseData", sender: self)
+            AlomofireNetworkRequest.responseData(url: swiftbookApi)
+        case .resposeString:
+            AlomofireNetworkRequest.responseString(url: swiftbookApi)
+        case .response:
+            AlomofireNetworkRequest.response(url: swiftbookApi)
+        }
+    }
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let coursesVC = segue.destination as? CoursesTableViewController
+        let imageVC = segue.destination as? ImageViewController
+        
+        switch segue.identifier {
+        case "OurCourses":
+            coursesVC?.fetchData()
+        case "OurCoursesAlomofire":
+            coursesVC?.fetchDataWithAlamofire()
+        case "ShowImage":
+            imageVC?.fetchImage()
+        case "ResponseData" :
+            imageVC?.fetchDataWithAlomofire()
+        default:
+            break
         }
     }
 

@@ -66,11 +66,13 @@
                     <connections>
                         <segue destination="B2L-jY-IyN" kind="show" identifier="ShowImage" id="lqC-z5-ZH4"/>
                         <segue destination="mqG-bL-jHO" kind="show" identifier="OurCourses" id="Mf9-jx-6Tb"/>
+                        <segue destination="mqG-bL-jHO" kind="show" identifier="OurCoursesAlomofire" id="ITG-C1-O0g"/>
+                        <segue destination="B2L-jY-IyN" kind="show" identifier="ResponseData" id="T4v-AW-7Ji"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sSY-kQ-WPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1903" y="116"/>
+            <point key="canvasLocation" x="1852" y="116"/>
         </scene>
         <!--Our Courses-->
         <scene sceneID="QxO-PN-FRg">
@@ -246,4 +248,8 @@
             <point key="canvasLocation" x="1068" y="116"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lqC-z5-ZH4"/>
+        <segue reference="ITG-C1-O0g"/>
+    </inferredMetricsTieBreakers>
 </document>

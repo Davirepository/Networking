@@ -16,12 +16,6 @@ class CoursesTableViewController: UITableViewController {
     private var courseName: String?
     private var courseURL: String?
     private let url = "http://swiftbook.ru//wp-content/uploads/api/api_courses"
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        fetchData()
-    }
     
     // MARK: - Methods
     
@@ -33,6 +27,15 @@ class CoursesTableViewController: UITableViewController {
 //        let jsonUrlString = "http://swiftbook.ru//wp-content/uploads/api/api_missing_or_wrong_fields" // пропущенные данные для полей course: { словари джейсон } чтобы избежать ошибки объявляем поля опциональными
         
         NetworkManager.fetchData(url: url) { (courses) in
+            self.courses = courses
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func fetchDataWithAlamofire() {
+        AlomofireNetworkRequest.sendRequest(url: url) { (courses) in
             self.courses = courses
             DispatchQueue.main.async {
                 self.tableView.reloadData()
