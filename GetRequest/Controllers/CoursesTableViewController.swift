@@ -16,6 +16,8 @@ class CoursesTableViewController: UITableViewController {
     private var courseName: String?
     private var courseURL: String?
     private let url = "http://swiftbook.ru//wp-content/uploads/api/api_courses"
+    private let postRequestUrl = "http://jsonplaceholder.typicode.com/posts"
+    private let putRequestUrl = "http://jsonplaceholder.typicode.com/posts/1"
     
     // MARK: - Methods
     
@@ -67,6 +69,30 @@ class CoursesTableViewController: UITableViewController {
                 cell.courseImage.image = UIImage(data: imageData)
             }
             
+        }
+    }
+    
+    func postRequest() {
+        
+        AlomofireNetworkRequest.postRequest(url: postRequestUrl) { (courses) in
+            
+            self.courses = courses
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func putRequest() {
+        
+        AlomofireNetworkRequest.putRequest(url: putRequestUrl) { (courses) in
+            
+            self.courses = courses
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
 

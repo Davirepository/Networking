@@ -12,58 +12,58 @@ import Alamofire
 class ImageViewController: UIViewController {
     
     private let url = "https://fonpin.space/wp-content/uploads/2019/02/1693c5a9abee123ccaf3536969a8a870.jpg"
+    private let largeImageUrl = "https://i.imgur.com/3416rvI.jpg"
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var completedLabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.completedLabel.isHidden = true
+        self.progressView.isHidden = true
+        
         activityIndicator.isHidden = true
         activityIndicator.hidesWhenStopped = true
-        fetchImage()
+        activityIndicator.startAnimating()
     }
     
     func fetchImage() {
-        
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        
+    
         NetworkManager.downloadImage(url: url) { (image) in
-            
             self.activityIndicator.stopAnimating()
             self.imageView.image = image
         }
     }
     
     func fetchDataWithAlomofire() {
-        
-        request(url).responseData { (responsData) in
-            
-            switch responsData.result {
-                
-            case .success(let data):
-                
-                guard let image = UIImage(data: data) else { return }
-                
+
+            AlomofireNetworkRequest.downloadImage(url: url, completion: { (image) in
                 self.activityIndicator.stopAnimating()
                 self.imageView.image = image
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
+            })
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func downloadImageWithProgress() {
+        
+        AlomofireNetworkRequest.onProgress = { progress in
+            self.progressView.isHidden = false
+            self.progressView.progress = Float(progress)
+        }
+        
+        AlomofireNetworkRequest.completed = { completed in
+            self.completedLabel.isHidden = false
+            self.completedLabel.text = completed
+        }
+        
+        AlomofireNetworkRequest.downloadImageWithProgress(url: largeImageUrl) { (image) in
+            self.activityIndicator.stopAnimating()
+            self.completedLabel.isHidden = true
+            self.progressView.isHidden = true
+            self.imageView.image = image
+        }
     }
-    */
 
 }

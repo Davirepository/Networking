@@ -68,6 +68,9 @@
                         <segue destination="mqG-bL-jHO" kind="show" identifier="OurCourses" id="Mf9-jx-6Tb"/>
                         <segue destination="mqG-bL-jHO" kind="show" identifier="OurCoursesAlomofire" id="ITG-C1-O0g"/>
                         <segue destination="B2L-jY-IyN" kind="show" identifier="ResponseData" id="T4v-AW-7Ji"/>
+                        <segue destination="B2L-jY-IyN" kind="show" identifier="LargeImage" id="j3g-JR-reg"/>
+                        <segue destination="mqG-bL-jHO" kind="show" identifier="PostRequest" id="a4s-SS-9Fd"/>
+                        <segue destination="mqG-bL-jHO" kind="show" identifier="PutRequest" id="Ang-Jt-4el"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sSY-kQ-WPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,21 +211,39 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="pAr-zP-sXA">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comleted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAC-Ol-U5T">
+                                <rect key="frame" x="144" y="588" width="126" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HlQ-8S-sax">
+                                <rect key="frame" x="132" y="680" width="150" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="al6-2G-VR8"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="bAC-Ol-U5T" firstAttribute="centerX" secondItem="oyS-NH-mLt" secondAttribute="centerX" id="79y-hU-p5X"/>
                             <constraint firstItem="pAr-zP-sXA" firstAttribute="centerY" secondItem="oyS-NH-mLt" secondAttribute="centerY" id="HZL-7K-wgS"/>
+                            <constraint firstItem="HlQ-8S-sax" firstAttribute="centerX" secondItem="oyS-NH-mLt" secondAttribute="centerX" id="I9J-Ic-1Id"/>
                             <constraint firstItem="rP6-Om-7m8" firstAttribute="trailing" secondItem="XnI-fI-aZV" secondAttribute="trailing" id="Ndy-YA-rua"/>
                             <constraint firstItem="rP6-Om-7m8" firstAttribute="bottom" secondItem="XnI-fI-aZV" secondAttribute="bottom" id="VsU-Lw-tzH"/>
                             <constraint firstItem="pAr-zP-sXA" firstAttribute="centerX" secondItem="oyS-NH-mLt" secondAttribute="centerX" id="bYN-rn-s61"/>
                             <constraint firstItem="XnI-fI-aZV" firstAttribute="leading" secondItem="rP6-Om-7m8" secondAttribute="leading" id="hcT-Ef-yMm"/>
+                            <constraint firstItem="HlQ-8S-sax" firstAttribute="top" secondItem="bAC-Ol-U5T" secondAttribute="bottom" constant="56" id="l7p-va-fnZ"/>
+                            <constraint firstItem="bAC-Ol-U5T" firstAttribute="top" secondItem="pAr-zP-sXA" secondAttribute="bottom" constant="130" id="sas-DA-gi9"/>
                             <constraint firstItem="XnI-fI-aZV" firstAttribute="top" secondItem="rP6-Om-7m8" secondAttribute="top" id="ucq-dk-T1d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rP6-Om-7m8"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="pAr-zP-sXA" id="y8d-Ef-wFt"/>
+                        <outlet property="completedLabel" destination="bAC-Ol-U5T" id="we5-ve-laM"/>
                         <outlet property="imageView" destination="XnI-fI-aZV" id="ONg-qZ-QWN"/>
+                        <outlet property="progressView" destination="HlQ-8S-sax" id="cCn-7Z-GOv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2L-LR-pX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -250,6 +271,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="lqC-z5-ZH4"/>
-        <segue reference="ITG-C1-O0g"/>
+        <segue reference="Ang-Jt-4el"/>
     </inferredMetricsTieBreakers>
 </document>
