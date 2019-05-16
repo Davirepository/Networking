@@ -9,6 +9,7 @@
 import UIKit
 import UserNotifications // для push уведомлений
 import FBSDKLoginKit
+import FirebaseAuth
 
 enum Actions: String, CaseIterable {
     
@@ -241,8 +242,10 @@ extension MainViewController {
         
         // отслеживание регистрации пользователя
         //(если не зарегистрирован создаем контроллер LoginViewController и переходим туда)
-        if !(FBSDKAccessToken.currentAccessTokenIsActive()) {
-            
+//        if !(FBSDKAccessToken.currentAccessTokenIsActive()) {
+        // так как мы теперь всю регистрацию пользователя производим в firebase, то проверяем авторизацию именно в этом сервисе
+        if Auth.auth().currentUser == nil { // если текущий пользователь firebase = nil то открываем LoginViewController для авторизации
+        
             // создание контроллера для регистрации и перехода на него
             DispatchQueue.main.async {
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)

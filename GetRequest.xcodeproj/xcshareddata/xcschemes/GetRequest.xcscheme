@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1020"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7DFE5F7FE6606664E2E794EF6CE819B1"
-               BuildableName = "Pods_GetRequest.framework"
-               BlueprintName = "Pods-GetRequest"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "63FEE85F2289BC6A00DBC139"
+               BuildableName = "GetRequest.app"
+               BlueprintName = "GetRequest"
+               ReferencedContainer = "container:GetRequest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "63FEE85F2289BC6A00DBC139"
+            BuildableName = "GetRequest.app"
+            BlueprintName = "GetRequest"
+            ReferencedContainer = "container:GetRequest.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,23 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7DFE5F7FE6606664E2E794EF6CE819B1"
-            BuildableName = "Pods_GetRequest.framework"
-            BlueprintName = "Pods-GetRequest"
-            ReferencedContainer = "container:Pods.xcodeproj">
+            BlueprintIdentifier = "63FEE85F2289BC6A00DBC139"
+            BuildableName = "GetRequest.app"
+            BlueprintName = "GetRequest"
+            ReferencedContainer = "container:GetRequest.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,6 +77,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "63FEE85F2289BC6A00DBC139"
+            BuildableName = "GetRequest.app"
+            BlueprintName = "GetRequest"
+            ReferencedContainer = "container:GetRequest.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

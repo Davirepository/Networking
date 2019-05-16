@@ -26,6 +26,7 @@
 		63FEE892228DAC3900DBC139 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEE891228DAC3900DBC139 /* Extensions.swift */; };
 		63FEE894228DACBF00DBC139 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEE893228DACBF00DBC139 /* LoginViewController.swift */; };
 		63FEE896228DB51600DBC139 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEE895228DB51600DBC139 /* UserProfileVC.swift */; };
+		63FEE899228DCBE700DBC139 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63FEE898228DCBE600DBC139 /* GoogleService-Info.plist */; };
 		C39AC2484279408DAF2D4BA6 /* Pods_GetRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F601EE951719102E7E6EC152 /* Pods_GetRequest.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		63FEE891228DAC3900DBC139 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		63FEE893228DACBF00DBC139 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		63FEE895228DB51600DBC139 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
+		63FEE898228DCBE600DBC139 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76594A382D472B7F48E60211 /* Pods-GetRequest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetRequest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GetRequest/Pods-GetRequest.debug.xcconfig"; sourceTree = "<group>"; };
 		F065D1815AD58C147C58AF95 /* Pods-GetRequest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetRequest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetRequest/Pods-GetRequest.release.xcconfig"; sourceTree = "<group>"; };
 		F601EE951719102E7E6EC152 /* Pods_GetRequest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetRequest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 				63FEE86A2289BC6B00DBC139 /* Assets.xcassets */,
 				63FEE86C2289BC6B00DBC139 /* LaunchScreen.storyboard */,
 				63FEE86F2289BC6B00DBC139 /* Info.plist */,
+				63FEE898228DCBE600DBC139 /* GoogleService-Info.plist */,
 			);
 			path = GetRequest;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63FEE86E2289BC6B00DBC139 /* LaunchScreen.storyboard in Resources */,
+				63FEE899228DCBE700DBC139 /* GoogleService-Info.plist in Resources */,
 				63FEE86B2289BC6B00DBC139 /* Assets.xcassets in Resources */,
 				63FEE8692289BC6A00DBC139 /* Main.storyboard in Resources */,
 			);
@@ -276,6 +280,8 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -285,6 +291,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

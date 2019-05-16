@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import FirebaseAuth
 
 // Контроллер для входа в профиль facebook
 
@@ -112,10 +113,33 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
                 // если же он зарегистрировался то открываеем MainViewController()
                 if result.isCancelled { return }
                 else {
+                    self.signIntoFirebase()
+                    
                     // вызываем метод для закрытия(выгрузка из памяти) текущего вьюконтроллера и перехода на главный экран
                     self.openMainViewController()
                 }
         }
     }
     
+    private func signIntoFirebase() {
+        
+        let accessToken = FBSDKAccessToken.current()
+        
+        guard let accessTokenString = accessToken?.tokenString else { return }
+        // передаем текущий токен пользователя facebook в сервис firebase для последующей его регистрации в этом сервисе
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        
+        // авторизуем пользователя в базе firebase с учетными данными facebook
+        // signInAndRetrieveData - ассинхронный вход в firebase с предоставленными сторонними учетными данными
+        // credentials - учетные данные, user - авторизованный пользователь
+        Auth.auth().signInAndRetrieveData(with: credentials) { (user, error) in
+            
+            if let error = error {
+                print("Something wrong with our facebook user: ", error)
+                return
+            }
+            
+            print("Successfully logged in with our FB user: ", user!)
+        }
+    }
 }

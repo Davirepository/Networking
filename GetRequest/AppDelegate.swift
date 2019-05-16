@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import Firebase
 
 
 let primaryColor = UIColor(red: 210/255, green: 109/255, blue: 128/255, alpha: 1)
@@ -34,8 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // обработка результатов (вход/ выход/ вход с последней зарегистрированной странцы)
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        // добавление конфигурации FirebaseApp
+        FirebaseApp.configure()
         
         return true
     }

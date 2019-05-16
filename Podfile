@@ -8,5 +8,6 @@ target 'GetRequest' do
   pod 'Alamofire', '~> 4.7'
 pod 'FBSDKCoreKit'  
 pod 'FBSDKLoginKit'
+pod 'Firebase/Auth'
 
 end

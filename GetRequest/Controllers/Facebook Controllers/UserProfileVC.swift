@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import FirebaseAuth
 
 // Контроллер для выхода из профиля facebook
 
@@ -71,11 +72,23 @@ extension UserProfileVC: FBSDKLoginButtonDelegate {
     }
     
     private func openLogoutViewController() {
-        
-        // отслеживание регистрации пользователя
-        //(если не зарегистрирован создаем контроллер LoginViewController и переходим туда)
-        if !(FBSDKAccessToken.currentAccessTokenIsActive()) {
-            
+ // (метод был реализован для выхода из фейсбука без firebase базы)
+//        // отслеживание регистрации пользователя
+//        //(если не зарегистрирован создаем контроллер LoginViewController и переходим туда)
+//        if !(FBSDKAccessToken.currentAccessTokenIsActive()) {
+//
+//            // создание контроллера для регистрации и переход на него
+//            DispatchQueue.main.async {
+//                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//                let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//
+//                self.present(loginViewController, animated: true)
+//                return
+//            }
+//        }
+        // деавторизация(выход) из firebase и facebook все это происходит постепенно
+        do {
+            try Auth.auth().signOut()
             // создание контроллера для регистрации и переход на него
             DispatchQueue.main.async {
                 let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -84,8 +97,9 @@ extension UserProfileVC: FBSDKLoginButtonDelegate {
                 self.present(loginViewController, animated: true)
                 return
             }
+        } catch {
+            print("Failed to sign out with error: ", error.localizedDescription)
         }
-
         
     }
     
