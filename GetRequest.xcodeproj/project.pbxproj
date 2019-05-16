@@ -23,6 +23,9 @@
 		63FEE88B228A155600DBC139 /* ImageProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEE88A228A155600DBC139 /* ImageProperties.swift */; };
 		63FEE88D228A29FD00DBC139 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEE88C228A29FD00DBC139 /* DataProvider.swift */; };
 		63FEE88F228B08DF00DBC139 /* AlmofireNetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEE88E228B08DF00DBC139 /* AlmofireNetworkRequest.swift */; };
+		63FEE892228DAC3900DBC139 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEE891228DAC3900DBC139 /* Extensions.swift */; };
+		63FEE894228DACBF00DBC139 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEE893228DACBF00DBC139 /* LoginViewController.swift */; };
+		63FEE896228DB51600DBC139 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FEE895228DB51600DBC139 /* UserProfileVC.swift */; };
 		C39AC2484279408DAF2D4BA6 /* Pods_GetRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F601EE951719102E7E6EC152 /* Pods_GetRequest.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,10 @@
 		63FEE88A228A155600DBC139 /* ImageProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProperties.swift; sourceTree = "<group>"; };
 		63FEE88C228A29FD00DBC139 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		63FEE88E228B08DF00DBC139 /* AlmofireNetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlmofireNetworkRequest.swift; sourceTree = "<group>"; };
+		63FEE890228DA49C00DBC139 /* GetRequest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GetRequest.entitlements; sourceTree = "<group>"; };
+		63FEE891228DAC3900DBC139 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		63FEE893228DACBF00DBC139 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		63FEE895228DB51600DBC139 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		76594A382D472B7F48E60211 /* Pods-GetRequest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetRequest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GetRequest/Pods-GetRequest.debug.xcconfig"; sourceTree = "<group>"; };
 		F065D1815AD58C147C58AF95 /* Pods-GetRequest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetRequest.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetRequest/Pods-GetRequest.release.xcconfig"; sourceTree = "<group>"; };
 		F601EE951719102E7E6EC152 /* Pods_GetRequest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetRequest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +107,7 @@
 		63FEE8622289BC6A00DBC139 /* GetRequest */ = {
 			isa = PBXGroup;
 			children = (
+				63FEE890228DA49C00DBC139 /* GetRequest.entitlements */,
 				63FEE8632289BC6A00DBC139 /* AppDelegate.swift */,
 				63FEE87E2289D4CC00DBC139 /* Controllers */,
 				63FEE87D2289D4B900DBC139 /* Model */,
@@ -131,6 +139,8 @@
 				63FEE8772289D20100DBC139 /* CoursesTableViewController.swift */,
 				63FEE8792289D24200DBC139 /* WebViewController.swift */,
 				63FEE884228A051400DBC139 /* MainViewController.swift */,
+				63FEE891228DAC3900DBC139 /* Extensions.swift */,
+				63FEE897228DB9F900DBC139 /* Facebook Controllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -143,6 +153,15 @@
 				63FEE886228A053800DBC139 /* CollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		63FEE897228DB9F900DBC139 /* Facebook Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				63FEE893228DACBF00DBC139 /* LoginViewController.swift */,
+				63FEE895228DB51600DBC139 /* UserProfileVC.swift */,
+			);
+			path = "Facebook Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +200,9 @@
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
 								enabled = 1;
 							};
 						};
@@ -251,12 +273,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GetRequest/Pods-GetRequest-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -273,9 +301,11 @@
 				63FEE88B228A155600DBC139 /* ImageProperties.swift in Sources */,
 				63FEE887228A053800DBC139 /* CollectionViewCell.swift in Sources */,
 				63FEE8802289D93E00DBC139 /* WebsiteDescription.swift in Sources */,
+				63FEE894228DACBF00DBC139 /* LoginViewController.swift in Sources */,
 				63FEE8832289EE7400DBC139 /* TableViewCell.swift in Sources */,
 				63FEE87C2289D4AC00DBC139 /* Course.swift in Sources */,
 				63FEE889228A0A8800DBC139 /* NetworkManager.swift in Sources */,
+				63FEE896228DB51600DBC139 /* UserProfileVC.swift in Sources */,
 				63FEE88D228A29FD00DBC139 /* DataProvider.swift in Sources */,
 				63FEE8782289D20100DBC139 /* CoursesTableViewController.swift in Sources */,
 				63FEE88F228B08DF00DBC139 /* AlmofireNetworkRequest.swift in Sources */,
@@ -283,6 +313,7 @@
 				63FEE885228A051400DBC139 /* MainViewController.swift in Sources */,
 				63FEE87A2289D24200DBC139 /* WebViewController.swift in Sources */,
 				63FEE8642289BC6A00DBC139 /* AppDelegate.swift in Sources */,
+				63FEE892228DAC3900DBC139 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +460,7 @@
 			baseConfigurationReference = 76594A382D472B7F48E60211 /* Pods-GetRequest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GetRequest/GetRequest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HK3JCX6MNH;
 				INFOPLIST_FILE = GetRequest/Info.plist;
@@ -448,6 +480,7 @@
 			baseConfigurationReference = F065D1815AD58C147C58AF95 /* Pods-GetRequest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GetRequest/GetRequest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HK3JCX6MNH;
 				INFOPLIST_FILE = GetRequest/Info.plist;

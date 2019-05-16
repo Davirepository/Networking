@@ -6,5 +6,7 @@ target 'GetRequest' do
   use_frameworks!
 
   pod 'Alamofire', '~> 4.7'
+pod 'FBSDKCoreKit'  
+pod 'FBSDKLoginKit'
 
 end

@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications // для push уведомлений
+import FBSDKLoginKit
 
 enum Actions: String, CaseIterable {
     
@@ -68,7 +69,7 @@ class MainViewController: UICollectionViewController {
             self.postNotification()
         }
         
-        
+        chekkLoggedIn()
     }
     
     // MARK: - Methods
@@ -231,6 +232,29 @@ extension MainViewController {
     }
 }
 
+// MARK: Facebook SDK
+// создание контроллера для регистрации и переход на него
+extension MainViewController {
+    
+    // проверка активности текущего токена авторизации пользователя
+    private func chekkLoggedIn() {
+        
+        // отслеживание регистрации пользователя
+        //(если не зарегистрирован создаем контроллер LoginViewController и переходим туда)
+        if !(FBSDKAccessToken.currentAccessTokenIsActive()) {
+            
+            // создание контроллера для регистрации и перехода на него
+            DispatchQueue.main.async {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                
+                self.present(loginViewController, animated: true)
+                return
+            }
+        }
+        
+    }
+}
 
 
 
